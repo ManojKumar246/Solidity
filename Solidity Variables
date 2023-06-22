@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Variables
+{
+    uint public myuint = 0;
+    uint256 public myuint256 = 256;
+    uint16 public myuint16=16;
+    int public integer=1;
+    int8 public integer8=8;
+    string public mystring="Hello Krithika";
+    bytes11 public mystring11="HELLO MOJO";
+    address public myaddres=0x1c91347f2A44538ce62453BEBd9Aa907C662b4bD;
+
+    struct Mystruct
+    {
+        uint num;
+        string str;
+    }
+    Mystruct public obj=Mystruct(22,"HELLO ANANAD");
+
+    function get()public pure returns (uint)
+    {
+        uint val=1;
+        return val;
+    }
+
+}
