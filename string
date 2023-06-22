@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract StringNames {
+    string[] private names;
+
+    function addName(string memory newName) public {
+        names.push(newName);
+    }
+
+    function getName(uint256 index) public view returns (string memory) {
+        require(index < names.length, "Index out of bounds");
+        return names[index];
+    }
+
+    function getTotalNames() public view returns (uint256) {
+        return names.length;
+    }
+}
