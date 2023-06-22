@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Mapping 
+{
+    // Mapping from int to String 
+    mapping(int => string) public names;
+    // Mapping from uint to Structure 
+    mapping(uint => book) public books;
+    // Mapping from Address With Nested Mapping 
+    mapping (address => mapping(uint => book)) public Mybook;
+    // Structure Declaraction 
+    struct book
+    {
+        string note;
+        string name;
+        int page;
+    }
+    constructor()
+    {
+        names[1]="Manoj";
+        names[2]="Anand";
+        names[3]="Ganesh";
+    }
+    //Funtion 1 to Add Details In Normal Mapping 
+    function addbooks(uint id,string memory book1,string memory name1,int pg) public 
+    {
+        books[id]=book(book1,name1,pg);
+    }
+    //Function 2 to Add Details In Nested Mapping
+    function addMybooks(uint id,string memory book1,string memory name1,int pg) public 
+    {
+        Mybook[msg.sender][id]=book(book1,name1,pg);
+    }
+    
+}
+
