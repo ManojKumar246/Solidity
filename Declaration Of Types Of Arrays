@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+//Array Declaration 
+contract ArrayTypes
+{
+    //Array with data
+    uint[] public arr=[2,4,6];
+    // String with data
+    string[] public str=["Hello","Buddy"]; 
+    //Empty String To Stroe Data
+    string[] public store;
+    // Two dimensional Array 
+    uint256[][] public arr2D=[[1, 2, 3], [4, 5, 6]];
+
+    // Function To Store Data In The Empty Array
+    function AddValue(string memory Val) public 
+    {
+        store.push(Val);
+    }
+    // Function To Return The Length Of any Array
+    function ArraySize() public view returns(uint)
+    {
+        return str.length;
+    }
+}
+
+
