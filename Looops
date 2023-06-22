@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Loop
+{
+    uint[] public arr=[1,2,3,4,5,6,7,8,9,10,11];
+
+    function strlen() public view returns (int,int)
+    {
+        int odd=0;
+        int even=0;
+        for(uint i=0;i<arr.length;i++)
+        {
+            if(arr[i]&1==1)
+            odd++;
+            else {
+            even++;
+        }
+        }
+        return (odd,even);
+    }
+}
