@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract LinkedList {
+    struct Node {
+        uint256 data;
+        uint256 next;
+    }
+    
+    mapping(uint256 => Node) private nodes;
+    uint256 private head;
+    uint256 private tail;
+    
+    constructor() {
+        head = 0;
+        tail = 0;
+    }
+    
+    function append(uint256 _data) public {
+        Node storage newNode = nodes[tail];
+        newNode.data = _data;
+        newNode.next = 0;
+        
+        if (head == 0) {
+            head = tail = 1;
+        } else {
+            nodes[tail - 1].next = tail;
+            tail++;
+        }
+    }
+    
+    function get(uint256 _index) public view returns (uint256) {
+        require(_index >= 0 && _index < tail, "Invalid index");
+        
+        uint256 currentNode = head;
+        for (uint256 i = 0; i < _index; i++) {
+            currentNode = nodes[currentNode].next;
+        }
+        
+        return nodes[currentNode].data;
+    }
+    
+    function size() public view returns (uint256) {
+        return tail - head + 1;
+    }
+}
