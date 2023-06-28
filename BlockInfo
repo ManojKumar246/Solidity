@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract BlockExample {
+    function getBlockInfo() public view returns (bytes32, uint, uint) {
+        bytes32 blockHash = blockhash(block.number - 1); // Get the hash of the previous block
+        uint prevRandao = block.prevrandao; // Get the random number based on the beacon chain
+        uint blockTimestamp = block.timestamp; // Get the timestamp of the current block
+
+        return (blockHash, prevRandao, blockTimestamp);
+    }
+}
